@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    * Isaiah Jones (with J. Bryan Osborne)
+    * CIT 352 Mobile Application Development
+    * Mr. Osborne
+    * 2-17-2020
+-->
+
+<!--Frame the application within a relative layout -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactSettingsActivity">
+
+    <!--Text Label For the Sorting Radio Group-->
+    <TextView
+        android:id="@+id/sortPrefLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sortConText" />
+
+    <!--Radio Group for selecting which attribute the contact list will be sorted by -->
+    <RadioGroup
+        android:id="@+id/sortPrefList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sortPrefLabel"
+        android:paddingBottom="50dp">
+
+        <!--Radio Button for sorting by Name-->
+        <RadioButton
+            android:id="@+id/radioName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name" />
+
+        <!--Radio Button for sorting by City-->
+        <RadioButton
+            android:id="@+id/radioCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="City" />
+
+        <!--Radio Button for sorting by Birthday-->
+        <RadioButton
+            android:id="@+id/radioBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Birthday" />
+    </RadioGroup>
+
+    <!--Text Label For the Sort Order Radio Group-->
+    <TextView
+        android:id="@+id/sortOrderLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sortPrefLabel"
+        android:text="@string/sortOrText" />
+
+    <!--Radio Group for selecting in what orders the contact list will be displayed -->
+    <RadioGroup
+        android:id="@+id/orderPrefList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sortOrderLabel">
+
+        <!--Radio Button for Ascending Order-->
+        <RadioButton
+            android:id="@+id/radioAscending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ascending" />
+
+        <!--Radio Button for Descending Order-->
+        <RadioButton
+            android:id="@+id/radioDescending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descending" />
+    </RadioGroup>
+
+    <!--Relative Layout for the Navigation bar-->
+    <RelativeLayout
+        android:id="@+id/navBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/navbar_background">
+
+        <!--Image Button for for viewing the Contact List-->
+        <ImageButton
+            android:id="@+id/imageButtonList"
+            android:layout_width="107dp"
+            android:layout_height="101dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="20dp"
+            app:srcCompat="@mipmap/contactlisticon_foreground" />
+
+        <!--Image Button for for viewing the Contact Map-->
+        <ImageButton
+            android:id="@+id/imageButtonMap"
+            android:layout_width="106dp"
+            android:layout_height="101dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            app:srcCompat="@mipmap/mapicon" />
+
+        <!--Image Button for for viewing the Contact Map-->
+        <ImageButton
+            android:id="@+id/imageButtonSettings"
+            android:layout_width="102dp"
+            android:layout_height="101dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            app:srcCompat="@mipmap/settingsicon_foreground" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    * Isaiah Jones (with J. Bryan Osborne)
+    * CIT 352 Mobile Application Development
+    * Mr. Osborne
+    * 2-17-2020
+-->
+
+<!--Frame the application within a relative layout -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactMapActivity">
+
+    <!--Relative Layout for the Navigation bar-->
+    <RelativeLayout
+        android:id="@+id/navBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/navbar_background">
+
+        <!--Image Button for for viewing the Contact List-->
+        <ImageButton
+            android:id="@+id/imageButtonList"
+            android:layout_width="107dp"
+            android:layout_height="101dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="20dp"
+            app:srcCompat="@mipmap/contactlisticon_foreground" />
+
+        <!--Image Button for for viewing the Contact Map-->
+        <ImageButton
+            android:id="@+id/imageButtonMap"
+            android:layout_width="106dp"
+            android:layout_height="101dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            app:srcCompat="@mipmap/mapicon" />
+
+        <!--Image Button for for viewing the Contact List Settings-->
+        <ImageButton
+            android:id="@+id/imageButtonSettings"
+            android:layout_width="102dp"
+            android:layout_height="101dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            app:srcCompat="@mipmap/settingsicon_foreground" />
+
+    </RelativeLayout>
+</RelativeLayout>

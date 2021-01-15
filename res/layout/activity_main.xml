@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    * Isaiah Jones (with J. Bryan Osborne)
+    * CIT 352 Mobile Application Development
+    * Mr. Osborne
+    * 2-17-2020
+-->
+
+<!--Frame the application within a relative layout -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+    <!--Relative Layout for the Tool Bar-->
+    <RelativeLayout
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/navBar"
+        android:layout_alignParentTop="true"
+        android:background="@color/toolBar_color">
+
+        <!--Toggle Button for editing contact information-->
+        <ToggleButton
+            android:id="@+id/toggleButtonEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="false"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="2dp"
+            android:text="ToggleButton" />
+
+        <!--Save Button-->
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/saveText" />
+    </RelativeLayout>
+
+    <!--Frame Contact Information in a Scroll View-->
+    <ScrollView
+        android:id="@+id/scrollViewContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/navBar"
+        android:layout_below="@id/toolBar"
+        android:layout_alignParentLeft="true">
+
+        <!--Relative Layout within the Scroll View for storing Contact info fields-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="450dp">
+
+
+            <!--Text Label for the Contact Name-->
+            <TextView
+                android:id="@+id/textContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Contact:"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <!--Text Field for entering in Contact Name Data-->
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textContact"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:ems="14"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName" >
+            </EditText>
+
+            <!--Text Label for the Contact's Address-->
+            <TextView
+                android:id="@+id/textAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editName"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="Address: "
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <!--Text Field for entering the Contact's Address-->
+            <EditText
+                android:id="@+id/editAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textAddress"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:ems="14"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords" />
+
+            <!--Text Field for entering the City of the Contact's Address-->
+            <EditText
+                android:id="@+id/editCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/editAddress"
+                android:layout_marginLeft="10dp"
+                android:ems="8"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
+                android:nextFocusDown="@id/editState" />
+
+            <!--Text Field for entering the the state of the Contact's address-->
+            <EditText
+                android:id="@+id/editState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/editCity"
+                android:layout_toRightOf="@id/editCity"
+                android:layout_marginLeft="10dp"
+                android:ems="2"
+                android:imeOptions="actionNext"
+                android:inputType="textCapCharacters"
+                android:maxLength="2"
+                android:nextFocusDown="@id/editZipcode" />
+
+            <!--Text Field for entering the Contact's Zip Code-->
+            <EditText
+                android:id="@+id/editZipcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/editState"
+                android:layout_toRightOf= "@id/editState"
+                android:layout_marginLeft="10dp"
+                android:ems="5"
+                android:inputType="numberSigned"
+                android:maxLength="5"
+                android:nextFocusDown="@id/editHome" />
+
+
+            <!--Text Label for the Contact's Home Phone Number-->
+            <TextView
+                android:id="@+id/textHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/editCity"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="Home Phone: "
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+            <!--Text Field for entering the Contact's Home Phone Number-->
+            <EditText
+                android:id="@+id/editHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below= "@id/textHome"
+                android:layout_marginLeft="10dp"
+                android:ems="7"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
+                android:maxLength="14"
+                android:nextFocusDown="@id/editCell" />
+
+            <!--Text Label for the Contact's Cell Phone Number-->
+            <TextView
+                android:id="@+id/textCell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/textHome"
+                android:layout_alignLeft="@id/editCell"
+                android:text="Cell Phone: "
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <!--Text Field for entering the Contact's Cell phone number-->
+            <EditText
+                android:id="@+id/editCell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/editHome"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/editHome"
+                android:ems="7"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
+                android:maxLength="14"
+                android:nextFocusDown="@id/editEMail" />
+
+            <!--Text Label for the Contact's Email address-->
+            <TextView
+                android:id="@+id/textEMail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/editHome"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="E-Mail Address: "
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <!--Text Field for entering the Contact's email information-->
+            <EditText
+                android:id="@+id/editEMail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/textEMail"
+                android:ems="13"
+                android:inputType="textEmailAddress" />
+
+            <!--Text Label for the Contact's Birthday-->
+            <TextView
+                android:id="@+id/textBday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/editEMail"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:paddingBottom="25dp"
+                android:text="Birthday:"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <!--Text Label for showing the set Contact Birthday-->
+            <TextView
+                android:id="@+id/textBirthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/textBday"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/textBday"
+                android:paddingBottom="25dp"
+                android:text="01/01/1970"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <!--Button for changing the contacts birthday-->
+            <Button
+                android:id="@+id/btnBirthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/textBirthday"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:text="Change"
+                />
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <!--Relative Layout for the Navigation bar-->
+    <RelativeLayout
+        android:id="@+id/navBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/navbar_background">
+
+        <!--Image Button for for viewing the Contact List-->
+        <ImageButton
+            android:id="@+id/imageButtonList"
+            android:layout_width="107dp"
+            android:layout_height="101dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="20dp"
+            app:srcCompat="@mipmap/contactlisticon_foreground" />
+
+        <!--Image Button for for viewing the Contact Map-->
+        <ImageButton
+            android:id="@+id/imageButtonMap"
+            android:layout_width="106dp"
+            android:layout_height="101dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            app:srcCompat="@mipmap/mapicon" />
+
+        <!--Image Button for for viewing the Contact List Settings-->
+        <ImageButton
+            android:id="@+id/imageButtonSettings"
+            android:layout_width="102dp"
+            android:layout_height="101dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            app:srcCompat="@mipmap/settingsicon_foreground" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
